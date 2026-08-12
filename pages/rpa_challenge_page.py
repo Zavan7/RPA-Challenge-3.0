@@ -12,30 +12,28 @@ class BasePage:
     Armazena a instância da página do Selenium (WebDriver) e o tempo padrão
     de espera, utilizado pelas classes filhas
     '''
-    
-    def __init__(self,
+    def __init__(
+        self,
         driver: WebDriver,
-        url: str,
         timeout: int = 4
     ) ->None:
 
         self.driver = driver
         self.timeout = timeout
-        self.url = url
         self.wait = WebDriverWait(driver, timeout)
 
 
-    def open_url(self):
+    def open_url(self, url: str):
 
         try:
 
             logger.info('Abrindo URL da página')
 
-            if self.url is None:
+            if url is None:
                 return
 
 
-            self.driver.get(self.url)
+            self.driver.get(url)
 
         except Exception as e:
             logger.error(f'Erro ao abrir link: {e}')

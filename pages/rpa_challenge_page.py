@@ -25,11 +25,22 @@ class BasePage:
 
     def open_url(self, url: str):
 
+        '''
+        Responsável por acessar a página inicial da aplicação, recendo a URL
+
+        Args:
+            url (str): Endereço da página que será acessada
+
+        Tenta acessar a URL, caso não esteja disponível, retoirnando um
+        Warning via Log
+        '''
+
         try:
 
             logger.info('Abrindo URL da página')
 
             if url is None:
+                logger.warning('URL indisponível')
                 return
 
 

@@ -13,7 +13,8 @@ logger = logging.getLogger(__name__)
 
 class StarChallenge(BasePage):
     
-    def __init__(self,
+    def __init__(
+        self,
         driver: WebDriver,
         seletor_start_challenge: str,
         timeout: int = 4
